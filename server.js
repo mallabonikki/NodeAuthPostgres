@@ -9,10 +9,11 @@ var pg = require('pg');
 var passport = require('passport');
 var flash    = require('connect-flash');
 
-var logger     = require('morgan');
+var logger       = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser   = require('body-parser');
 var session      = require('express-session');
+var knex 		 = require ('knex');
 
 
 // configuration ===============================================================
@@ -68,9 +69,10 @@ pool.on('error', function (err, client){
 app.use(logger('dev')); // log every request to the console
 app.use(cookieParser()); // read cookies (needed for auth)
 app.use(bodyParser.json()); // get information from html forms
-	app.use(bodyParser.urlencoded({extended: true}));
+app.use(bodyParser.urlencoded({extended: true}));
 app.set('view engine', 'ejs'); // set up ejs for templating
 app.set('views', './client/views');
+
 // required for passport
 app.use(session({ secret: 'ilovescotchscotchyscotchscotch' })); // session secret
 app.use(passport.initialize());

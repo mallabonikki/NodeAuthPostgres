@@ -1,4 +1,6 @@
-// app/routes.js
+// /routes.js
+var db = require('../api/auth');
+
 module.exports = function(app, passport) {
 
     // =====================================
@@ -19,7 +21,8 @@ module.exports = function(app, passport) {
     });
 
     // process the login form
-    // app.post('/login', do all our passport stuff here);
+     //-----------
+	 
 
     // =====================================
     // SIGNUP ==============================
@@ -32,7 +35,12 @@ module.exports = function(app, passport) {
     });
 
     // process the signup form
-    // app.post('/signup', );
+    app.post('/signup', passport.authenticate('local-signup', {
+        successRedirect : '/profile', // redirect to the secure profile section
+        failureRedirect : '/signup', // redirect back to the signup page if there is an error
+        failureFlash : true // allow flash messages
+    }));
+
 
     // =====================================
     // PROFILE SECTION =====================
@@ -52,6 +60,8 @@ module.exports = function(app, passport) {
         req.logout();
         res.redirect('/');
     });
+	
+	app.get('/api/auth', db.getSingleUser);
 };
 
 // route middleware to make sure a user is logged in

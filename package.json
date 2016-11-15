@@ -7,19 +7,21 @@
     "start": "node ./bin/www"
   },
   "dependencies": {
+    "bcrypt-nodejs": "latest",
+    "bluebird": "^3.4.6",
     "body-parser": "~1.15.2",
+    "connect-flash": "~0.1.1",
     "cookie-parser": "~1.4.3",
     "debug": "~2.2.0",
     "ejs": "~2.5.2",
     "express": "~4.14.0",
+    "express-session": "~1.0.0",
+    "knex": "^0.12.6",
     "morgan": "~1.7.0",
-	"pg": "~6.1.0",
-    "serve-favicon": "~2.3.0",
-	"express-session": "~1.0.0",
-	
-	"bcrypt-nodejs": "latest",
-	"passport": "~0.1.17",
-	"passport-local": "~0.1.6",
-	"connect-flash": "~0.1.1"
+    "passport": "~0.1.17",
+    "passport-local": "~0.1.6",
+    "pg": "~6.1.0",
+    "pg-promise": "^5.3.5",
+    "serve-favicon": "~2.3.0"
   }
 }
