@@ -1,0 +1,9 @@
+{
+	"user": "MasterUsername", 
+	"database": "Test_DB",
+	"password": "MasterPassword",
+	"host": "test-db-id.cyhomhffyrrj.us-west-2.rds.amazonaws.com",
+	"port": 5432,
+	"max": 10,
+	"idleTimeoutMills": 30000
+}
